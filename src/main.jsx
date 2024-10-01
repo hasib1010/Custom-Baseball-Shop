@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from './Layout.jsx';
+import Glove3D from './Components/3D/Glove3D.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App></App>,
+      },
+      {
+        path: "/custom-gloves",
+        element: <Glove3D></Glove3D>
       },
     ],
   },

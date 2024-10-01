@@ -1,0 +1,11 @@
+Model Information:
+* title:	Baseball Glove
+* source:	https://sketchfab.com/3d-models/baseball-glove-35b2e174e07047f4a7d3442b5ed921c0
+* author:	Lead Black Tech (https://sketchfab.com/drebond)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Baseball Glove" (https://sketchfab.com/3d-models/baseball-glove-35b2e174e07047f4a7d3442b5ed921c0) by Lead Black Tech (https://sketchfab.com/drebond) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
