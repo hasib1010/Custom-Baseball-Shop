@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import wheel from "./../../assets/navimg/color-wheel.png"
+import wheel from "./../../../assets/navimg/color-wheel.png"
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -36,20 +36,21 @@ export default function Banner() {
     ];
 
     return (
-        <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}
-            pagination={{
-                clickable: true,
-            }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
-        >
+        <div className='my-20'>
+            <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+        }}
+        pagination={{
+            clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+    >
 
             <SwiperSlide
                 className=' min-h-[600px] max-h-[600px] '
@@ -150,5 +151,6 @@ export default function Banner() {
             </SwiperSlide>
 
         </Swiper>
+        </div>
     );
 }

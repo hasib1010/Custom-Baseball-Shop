@@ -2,6 +2,9 @@ import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import SceneModel from './SceneModel';
+import textureImg from "./../../../public/textures/texture.avif";
+import redTexture from "./../../../public/textures/redTexture.jpg";
+import greenTexture from "./../../../public/textures/greenTexture.jpg";
 
 const Loader = () => {
   return (
@@ -12,38 +15,38 @@ const Loader = () => {
 };
 
 const Glove3D = () => {
-  // Define colors for groups of parts
-  const [colors, setColors] = useState({
-    gloveBase: 'white', // Object_2
-    fingersRed: 'white', // Object_3, Object_4
-    fingersBlue: 'white', // Object_5, Object_6
-    thumbGreen: 'white', // Object_7
-    paddingBlack: 'white', // Object_8, Object_9, Object_10, Object_11, Object_12
-    indexYellow: 'white', // Object_13, Object_14
-    backPurple: 'white', // Object_15
-    strapsBrown: 'white', // Object_16, Object_17, Object_18, Object_19
-    webOrange: 'white', // Object_20 to Object_26
+  // Define textures for groups of parts
+  const [textures, setTextures] = useState({
+    gloveBase: textureImg,
+    fingersRed: redTexture,
+    fingersBlue: textureImg,
+    thumbGreen: greenTexture,
+    paddingBlack: textureImg,
+    indexYellow: textureImg,
+    backPurple: textureImg,
+    strapsBrown: textureImg,
+    webOrange: textureImg,
   });
 
-  // Handle color change for groups
-  const handleColorChange = (group, newColor) => {
-    setColors((prevColors) => ({
-      ...prevColors,
-      [group]: newColor,
+  // Handle texture change for groups
+  const handleTextureChange = (group, newTexture) => {
+    setTextures((prevTextures) => ({
+      ...prevTextures,
+      [group]: newTexture,
     }));
   };
 
   return (
     <div className='flex' style={{ position: 'relative' }}>
       <div className='border' style={{ width: '1000px', height: '800px' }}>
-        <Canvas camera={{ position: [0, 5, 15], fov: 50 }}>
+        <Canvas camera={{ position: [-10,-10,-10], fov: 50 }}>
           <ambientLight intensity={1} />
-          <directionalLight intensity={1.2} position={[5, 5, 5]} castShadow />
-          <pointLight position={[10, 10, 10]} intensity={0.8} />
-          <spotLight position={[-10, 10, -10]} intensity={1} angle={0.3} penumbra={0.5} castShadow />
+          <directionalLight intensity={5.2} position={[500, 1, 2]} castShadow />
+          <pointLight position={[105, 105, 100]} intensity={0.8} />
+          <spotLight position={[10, 10, -210]} intensity={1} angle={0.3} penumbra={0.5} castShadow />
 
           <Suspense fallback={<Loader />}>
-            <SceneModel colors={colors} />
+            <SceneModel textures={textures} />
           </Suspense>
 
           <OrbitControls
@@ -56,159 +59,114 @@ const Glove3D = () => {
         </Canvas>
       </div>
 
-      {/* Color Selection Options */}
-      <div >
+      {/* Texture Selection Options */}
+      <div>
         <div>
           <label>Glove Base: </label>
           <select
-            value={colors.gloveBase}
-            onChange={(e) => handleColorChange('gloveBase', e.target.value)}
+            value={textures.gloveBase}
+            onChange={(e) => handleTextureChange('gloveBase', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Fingers (Red): </label>
           <select
-            value={colors.fingersRed}
-            onChange={(e) => handleColorChange('fingersRed', e.target.value)}
+            value={textures.fingersRed}
+            onChange={(e) => handleTextureChange('fingersRed', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            <option value={textureImg}>Default Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Fingers (Blue): </label>
           <select
-            value={colors.fingersBlue}
-            onChange={(e) => handleColorChange('fingersBlue', e.target.value)}
+            value={textures.fingersBlue}
+            onChange={(e) => handleTextureChange('fingersBlue', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Thumb: </label>
           <select
-            value={colors.thumbGreen}
-            onChange={(e) => handleColorChange('thumbGreen', e.target.value)}
+            value={textures.thumbGreen}
+            onChange={(e) => handleTextureChange('thumbGreen', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={greenTexture}>Green Texture</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Padding: </label>
           <select
-            value={colors.paddingBlack}
-            onChange={(e) => handleColorChange('paddingBlack', e.target.value)}
+            value={textures.paddingBlack}
+            onChange={(e) => handleTextureChange('paddingBlack', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Index (Yellow): </label>
           <select
-            value={colors.indexYellow}
-            onChange={(e) => handleColorChange('indexYellow', e.target.value)}
+            value={textures.indexYellow}
+            onChange={(e) => handleTextureChange('indexYellow', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Back: </label>
           <select
-            value={colors.backPurple}
-            onChange={(e) => handleColorChange('backPurple', e.target.value)}
+            value={textures.backPurple}
+            onChange={(e) => handleTextureChange('backPurple', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Straps: </label>
           <select
-            value={colors.strapsBrown}
-            onChange={(e) => handleColorChange('strapsBrown', e.target.value)}
+            value={textures.strapsBrown}
+            onChange={(e) => handleTextureChange('strapsBrown', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
         <div>
           <label>Web: </label>
           <select
-            value={colors.webOrange}
-            onChange={(e) => handleColorChange('webOrange', e.target.value)}
+            value={textures.webOrange}
+            onChange={(e) => handleTextureChange('webOrange', e.target.value)}
           >
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="yellow">Yellow</option>
-            <option value="purple">Purple</option>
-            <option value="brown">Brown</option>
-            <option value="orange">Orange</option>
+            <option value={textureImg}>Default Texture</option>
+            <option value={redTexture}>Red Texture</option>
+            <option value={greenTexture}>Green Texture</option>
+            {/* Add more texture options as needed */}
           </select>
         </div>
       </div>
