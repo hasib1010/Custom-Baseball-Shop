@@ -36,7 +36,7 @@ export default function Banner() {
     ];
 
     return (
-        <div className='my-20'>
+        <div className=' '>
             <Swiper
         spaceBetween={30}
         centeredSlides={true}

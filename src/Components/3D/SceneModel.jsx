@@ -13,6 +13,8 @@ const SceneModel = ({ textures }) => {
     ])
   );
 
+  console.log("Loaded Textures: ", loadedTextures); // Debugging line
+
   return (
     <group dispose={null}>
       {/* Glove Base */}

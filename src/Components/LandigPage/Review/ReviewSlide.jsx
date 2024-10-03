@@ -107,7 +107,7 @@ export default function ReviewSlide() {
             </div>
 
             <Swiper
-                className='ml-44'
+                className='lg:ml-44'
                 onSwiper={setSwiperInstance} // Set the Swiper instance here
                 onSlideChange={handleSlideChange}
                 spaceBetween={20}
