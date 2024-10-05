@@ -14,6 +14,7 @@ import SignUpForm from './Components/LoginSignUp/SignUp.jsx';
 import CustomBuilder from './Components/Pages/CustomBuilder/CustomBuilder.jsx';
 import Baseball from './Components/Pages/Baseball/Baseball.jsx';
 import InField from './Components/Pages/Baseball/Infield/InField.jsx';
+import Front from './Components/ProductsModel/BaseballGlove/Front.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/custom-gloves",
-        element: <Glove3D></Glove3D>
+        element: <Front></Front>
       },
       {
         path: "/login",
