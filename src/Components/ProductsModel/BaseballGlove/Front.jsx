@@ -56,16 +56,16 @@ const imageLayers = [
 ];
 
 const Front = () => {
-  // State to store the selected color
+  // State to store the selected color filter
   const [filter, setFilter] = useState('');  
 
-  // Static colors array
+  // Static colors array with adjusted filters
   const staticColors = [
-    { name: 'Red', color: '#FF0000'  , filter: 'invert(91%) sepia(56%) saturate(5430%) hue-rotate(7deg) brightness(104%) contrast(128%)' },
-    { name: 'Green', color: '#00FF00',   filter: 'invert(48%) sepia(91%) saturate(1090%) hue-rotate(83deg) brightness(58%) contrast(126%)' },
-    { name: 'Blue',  color: '#0000FF',   filter: '  brightness(0) saturate(100%) invert(30%) sepia(88%) saturate(1185%) hue-rotate(206deg) brightness(97%) contrast(90%)' },
-    { name: 'Yellow', color: 'orange',   filter: 'invert(94%) sepia(56%) saturate(3430%) hue-rotate(5deg) brightness(113%) contrast(109%)' },
-    { name: 'Purple', color: '#800080',   filter: 'invert(17%) sepia(58%) saturate(5837%) hue-rotate(267deg) brightness(98%) contrast(127%)' },
+    { name: 'Red', color: 'red', filter: 'brightness(0.9) invert(91%) sepia(56%) saturate(5430%) hue-rotate(7deg) brightness(104%) contrast(128%)' },
+    { name: 'Green', color: 'green', filter: 'brightness(0.9) invert(48%) sepia(91%) saturate(1090%) hue-rotate(83deg) brightness(58%) contrast(126%)' },
+    { name: 'Blue', color: 'blue', filter: 'brightness(0.9) brightness(0) saturate(100%) invert(30%) sepia(88%) saturate(1185%) hue-rotate(206deg) brightness(97%) contrast(90%)' },
+    { name: 'Orange', color: 'orange', filter: 'invert(94%) sepia(56%) saturate(3430%) hue-rotate(5deg) brightness(113%) contrast(109%)' },
+    { name: 'Purple', color: 'purple', filter: 'brightness(0.9) invert(17%) sepia(58%) saturate(5837%) hue-rotate(267deg) brightness(98%) contrast(127%)' },
   ];
 
   // Function to handle color button click
