@@ -128,13 +128,6 @@ const CustomBaseball = () => {
     };
 
     const partNames = [
-        { id: 'binding', displayName: 'Binding' },
-        // { id: 'interiorLeather', displayName: 'Interior Leather' },
-        { id: 'lacesFinger', displayName: 'Laces Finger' },
-        { id: 'lacesPalm', displayName: 'Laces Palm' },
-        { id: 'lacesWingtipPinky', displayName: 'Laces Wingtip Pinky' },
-        { id: 'lacesWingtipThumb', displayName: 'Laces Wingtip Thumb' },
-        { id: 'lacesWrist', displayName: 'Laces Wrist' },
         { id: 'leather1', displayName: 'Leather 1' },
         { id: 'leather2', displayName: 'Leather 2' },
         { id: 'leather3', displayName: 'Leather 3' },
@@ -143,17 +136,19 @@ const CustomBaseball = () => {
         { id: 'leather6', displayName: 'Leather 6' },
         { id: 'leather7', displayName: 'Leather 7' },
         { id: 'leather8', displayName: 'Leather 8' },
-        { id: 'padding', displayName: 'Padding' },
         { id: 'palm', displayName: 'Palm' },
-        { id: 'stitching', displayName: 'Stitching' },
-        { id: 'welting', displayName: 'Welting' },
+        { id: 'folderWeb',displayName: 'Web'   },
+        { id: 'wrist',displayName: 'Wrist'   },
         { id: 'wingtipPinky', displayName: 'Wingtip Pinky' },
-        { id: 'wingtipThumb', displayName: 'Wingtip Thumb' },
-        { id: 'websLaces', displayName: 'Webs Laces' },
-        { id: 'websStitching', displayName: 'Webs Stitching' }, 
-        { id: 'folderWeb',displayName: 'Folder Web'   },
-        { id: 'wrist',displayName: 'wrist'   },
-        { id: 'mainLogo',displayName: 'Main Logo'   },
+        { id: 'wingtipThumb', displayName: 'Wingtip Thumb' }, 
+        { id: 'binding', displayName: 'Binding' },
+        { id: 'welting', displayName: 'Welting' },
+        { id: 'homePlate', displayName: 'Home Plate' },
+        { id: 'stitching', displayName: 'Stitching' },
+        { id: 'mainLogo',displayName: 'Logo Color'   },
+        { id: 'lacesFinger', displayName: 'Laces ' },
+        { id: 'padding', displayName: 'Padding' },
+        // { id: 'interiorLeather', displayName: 'Interior Leather' },
     ];
 
     return (

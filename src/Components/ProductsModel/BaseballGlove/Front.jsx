@@ -32,10 +32,10 @@ const imageLayers = [
   { id: 'binding', src: binding, alt: 'Binding', zIndex: 10 },
   { id: 'interiorLeather', src: interiorLeather, alt: 'Interior Leather', zIndex: 20 },
   { id: 'lacesFinger', src: lacesFinger, alt: 'Laces Finger', zIndex: 300 },
-  { id: 'lacesPalm', src: lacesPalm, alt: 'Laces Palm', zIndex: 40 },
-  { id: 'lacesWingtipPinky', src: lacesWingtipPinky, alt: 'Laces Wingtip Pinky', zIndex: 50 },
-  { id: 'lacesWingtipThumb', src: lacesWingtipThumb, alt: 'Laces Wingtip Thumb', zIndex: 60 },
-  { id: 'lacesWrist', src: lacesWrist, alt: 'Laces Wrist', zIndex: 70 },
+  { id: 'lacesFinger', src: lacesPalm, alt: 'Laces Palm', zIndex: 40 },
+  { id: 'lacesFinger', src: lacesWingtipPinky, alt: 'Laces Wingtip Pinky', zIndex: 50 },
+  { id: 'lacesFinger', src: lacesWingtipThumb, alt: 'Laces Wingtip Thumb', zIndex: 60 },
+  { id: 'lacesFinger', src: lacesWrist, alt: 'Laces Wrist', zIndex: 70 },
   { id: 'leather1', src: leather1, alt: 'Leather 1', zIndex: 80 },
   { id: 'leather2', src: leather2, alt: 'Leather 2', zIndex: 90 },
   { id: 'leather3', src: leather3, alt: 'Leather 3', zIndex: 100 },
@@ -50,8 +50,8 @@ const imageLayers = [
   { id: 'welting', src: welting, alt: 'Welting', zIndex: 190 },
   { id: 'wingtipPinky', src: wingtipPinky, alt: 'Wingtip Pinky', zIndex: 200 },
   { id: 'wingtipThumb', src: wingtipThumb, alt: 'Wingtip Thumb', zIndex: 210 },
-  { id: 'websLaces', src: websLaces, alt: 'Webs Laces', zIndex: 220 },
-  { id: 'websStitching', src: websStitching, alt: 'Webs Stitching', zIndex: 2300 },
+  { id: 'lacesFinger', src: websLaces, alt: 'Webs Laces', zIndex: 220 },
+  { id: 'stitching', src: websStitching, alt: 'Webs Stitching', zIndex: 2300 },
   { id: 'folderWeb', src: websWeb, alt: 'Webs Web', zIndex: 240 },
 ];
 
@@ -66,7 +66,7 @@ const Front = ({ filters }) => {
             src={layer?.src}
             alt={layer?.alt}
             style={{
-              filter: filters?.[layer.id] ? `${filters[layer.id]} opacity(0.7)` : 'none', // Adjust the opacity here
+              filter: filters?.[layer.id] ? `${filters[layer.id]}` : 'none', // Adjust the opacity here
               zIndex: layer.zIndex,
             }}
           />
