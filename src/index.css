@@ -14,4 +14,9 @@ body {
 }
 
  
-  
+.customSwiper .swiper-button-next{
+  display: block !important;
+}
+.customSwiper .swiper-button-prev{
+  display: block !important;
+}
