@@ -25,7 +25,20 @@ import wingtipThumb from "./../../../assets/front/wingtip-thumb.png";
 import websLaces from "./../../../assets/front/webs/laces.png";
 import websStitching from "./../../../assets/front/webs/stitching.png";
 import websWeb from "./../../../assets/front/webs/web.png";
-import palmLogo from "./../../../assets/front/palm-graphics/44-logo.png";
+
+// leather1 colors
+import leather1ElephantSkin from "./../../../assets/front/leather/leather-1--elephantskin.png";
+import leather1Gator from "./../../../assets/front/leather/leather-1--gator.png";
+import leather1Jeans from "./../../../assets/front/leather/leather-1--jeans.png";
+import leather1PaisleyGold from "./../../../assets/front/leather/leather-1--paisley--gold.png";
+import leather1Paisley from "./../../../assets/front/leather/leather-1--paisley.png";
+import leather1Perforated from "./../../../assets/front/leather/leather-1--perforated.png";
+import leather1SnakeskinCamo from "./../../../assets/front/leather/leather-1--snakeskin--camo.png";
+import leather1SnakeskinCottonCandy from "./../../../assets/front/leather/leather-1--snakeskin--cotton-candy.png";
+import leather1SnakeskinTieDye from "./../../../assets/front/leather/leather-1--snakeskin--tie-dye.png";
+import leather1Snakeskin from "./../../../assets/front/leather/leather-1--snakeskin.png";
+import leather1Steel from "./../../../assets/front/leather/leather-1--steel.png";
+import leather1Suede from "./../../../assets/front/leather/leather-1--suede.png";
 
 // Define image layers for the Front component
 const imageLayers = [
@@ -36,7 +49,7 @@ const imageLayers = [
   { id: 'lacesFinger', src: lacesWingtipPinky, alt: 'Laces Wingtip Pinky', zIndex: 50 },
   { id: 'lacesFinger', src: lacesWingtipThumb, alt: 'Laces Wingtip Thumb', zIndex: 60 },
   { id: 'lacesFinger', src: lacesWrist, alt: 'Laces Wrist', zIndex: 70 },
-  { id: 'leather1', src: leather1, alt: 'Leather 1', zIndex: 80 },
+  { id: 'leather1', src: leather1, alt: 'Leather 1', zIndex: 82 },
   { id: 'leather2', src: leather2, alt: 'Leather 2', zIndex: 90 },
   { id: 'leather3', src: leather3, alt: 'Leather 3', zIndex: 100 },
   { id: 'leather4', src: leather4, alt: 'Leather 4', zIndex: 110 },
@@ -53,18 +66,30 @@ const imageLayers = [
   { id: 'lacesFinger', src: websLaces, alt: 'Webs Laces', zIndex: 220 },
   { id: 'stitching', src: websStitching, alt: 'Webs Stitching', zIndex: 2300 },
   { id: 'folderWeb', src: websWeb, alt: 'Webs Web', zIndex: 240 },
-];
+  { id: " leather1ElephantSkin", src: leather1ElephantSkin, zIndex: 80 },
+  { id: "leather1Gator", src: leather1Gator, zIndex: 80 },
+  { id: "leather1Jeans", src: leather1Jeans, zIndex: 80 },
+  { id: "leather1PaisleyGold", src: leather1PaisleyGold, zIndex: 80 },
+  { id: "leather1Paisley", src: leather1Paisley, zIndex: 80 },
+  { id: "leather1Perforated", src: leather1Perforated, zIndex: 80 },
+  { id: "leather1SnakeskinCamo", src: leather1SnakeskinCamo, zIndex: 80 },
+  { id: "leather1SnakeskinCottonCandy", src: leather1SnakeskinCottonCandy, zIndex: 80 },
+  { id: "leather1SnakeskinTieDye", src: leather1SnakeskinTieDye, zIndex: 80 },
+  { id: "leather1Snakeskin", src: leather1Snakeskin, zIndex: 80 },
+  { id: "leather1Steel", src: leather1Steel, zIndex: 80 },
+  { id: "leather1Suede", src: leather1Suede, zIndex: 80 },
+]
 
 const Front = ({ filters }) => {
   return (
-    <div className="relative   min-h-screen">
+    <div className="relative min-h-screen">
       {imageLayers.map((layer) => (
-        <div key={layer?.id} className={`${layer?.id}-container relative`}>
+        <div key={layer.id} className={`${layer.id}-container relative`}>
           <img
-            id={layer?.id}
+            id={layer.id}
             className="absolute"
-            src={layer?.src}
-            alt={layer?.alt}
+            src={layer.src}
+            alt={layer.alt}
             style={{
               filter: filters?.[layer.id] ? `${filters[layer.id]}` : 'none', // Adjust the opacity here
               zIndex: layer.zIndex,
@@ -72,8 +97,6 @@ const Front = ({ filters }) => {
           />
         </div>
       ))}
-
-      
     </div>
   );
 };

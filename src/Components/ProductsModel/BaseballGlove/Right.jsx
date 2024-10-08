@@ -24,8 +24,8 @@ import wingtipThumb from "./../../../assets/right/wingtip-thumb.png";
 import wrist from "./../../../assets/right/wrist.png";
 
 const imageLayers = [
-  { id: 'homePlate', src: homePlate, alt: 'Home Plate', zIndex: 1000 },
-  { id: 'homePlateLogo', src: homePlateLogo, alt: 'Home Plate Logo', zIndex: 1100 },
+  { id: 'homePlate', src: homePlate, alt: 'Home Plate', zIndex: 10000 },
+  { id: 'homePlateLogo', src: homePlateLogo, alt: 'Home Plate Logo', zIndex: 11000 },
   { id: 'stitching', src: homePlateStitching, alt: 'Home Plate Stitching', zIndex: 1200 },
   { id: 'mainLogo', src: mainLogo, alt: 'Main Logo', zIndex: 1300 },
   { id: 'lacesFinger', src: laces, alt: 'Laces', zIndex: 200 },

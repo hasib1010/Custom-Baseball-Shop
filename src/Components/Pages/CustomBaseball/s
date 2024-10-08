@@ -46,6 +46,7 @@ const CustomBaseball = () => {
     const [activeTab, setActiveTab] = useState('base');
     const [selectedSize, setSelectedSize] = useState('');
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [selectedLeatherSkin, setSelectedLeatherSkin] = useState('leather1'); // Default skin
     const swiperRef = useRef(null);
     const colorSwiperRef = useRef(null);
 
@@ -80,8 +81,6 @@ const CustomBaseball = () => {
         { name: 'Gold', color: '#8efb5b', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(45deg)' },
     ];
 
-
-
     const sizes = ['11"', '11.25"', '11.5"', '11.75"', '12"', '12.25"'];
 
     const handleTabClick = (tab) => {
@@ -95,32 +94,18 @@ const CustomBaseball = () => {
         }));
     };
 
-
-
-
     const handleSizeChange = (size) => {
         setSelectedSize(size);
     };
 
-    const handleNextColor = () => {
-        if (colorSwiperRef.current) {
-            colorSwiperRef.current.swiper.slideNext();
-        }
-    };
-
-    const handlePrevColor = () => {
-        if (colorSwiperRef.current) {
-            colorSwiperRef.current.swiper.slidePrev();
-        }
-    };
-
-    const handleSlideChange = (swiper) => {
-        setCurrentSlideIndex(swiper.activeIndex);
+    const handleLeatherSkinChange = (skin) => {
+        setSelectedLeatherSkin(skin);
     };
 
     const handleReset = () => {
         setFilters(initialFilters);
         setSelectedSize('');
+        setSelectedLeatherSkin('leather1'); // Reset to default skin
         setActiveTab('base');
         setCurrentSlideIndex(0);
         if (swiperRef.current) swiperRef.current.swiper.slideTo(0);
@@ -148,11 +133,10 @@ const CustomBaseball = () => {
         { id: 'mainLogo', displayName: 'Logo Color' },
         { id: 'lacesFinger', displayName: 'Laces ' },
         { id: 'padding', displayName: 'Padding' },
-        // { id: 'interiorLeather', displayName: 'Interior Leather' },
     ];
 
     return (
-        <div className="flex   min-h-screen bg-gray-50 p-6">
+        <div className="flex min-h-screen bg-gray-50 p-6">
             <div className='flex-1 max-w-7xl customSwiper rounded-lg shadow-lg overflow-hidden'>
                 <Swiper
                     navigation={true}
@@ -160,24 +144,20 @@ const CustomBaseball = () => {
                     className="mySwiper"
                     slidesPerView={1}
                     spaceBetween={10}
-                    onSlideChange={handleSlideChange}
+                    onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
                     ref={swiperRef}
                 >
                     <SwiperSlide>
                         <Back filters={filters} />
-                        back
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Front filters={filters} />
-                        front
+                        <Front filters={filters} selectedLeatherSkin={selectedLeatherSkin} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Left filters={filters} />
-                        left
                     </SwiperSlide>
                     <SwiperSlide>
                         <Right filters={filters} />
-                        right
                     </SwiperSlide>
                 </Swiper>
             </div>
@@ -211,62 +191,48 @@ const CustomBaseball = () => {
                                     </div>
                                 ))}
                             </div>
+
+                            <h2 className="text-lg font-semibold mb-2 mt-4">Select Leather Skin</h2>
+                            <div className="flex flex-col">
+                                {['leather1ElephantSkin', 'leather1Gator', 'leather1Jeans'].map(skin => (
+                                    <label key={skin} className="cursor-pointer label">
+                                        <input
+                                            type="radio"
+                                            className="radio radio-success mr-5"
+                                            name="leatherSkin"
+                                            checked={selectedLeatherSkin === skin}
+                                            onChange={() => handleLeatherSkinChange(skin)}
+                                        />
+                                        <span className="label-text text-xl">{skin.replace('leather1', '')}</span>
+                                    </label>
+                                ))}
+                            </div>
                         </div>
                     )}
 
                     {activeTab === 'colors' && (
                         <div className='w-96'>
-                            <div className='flex justify-between mb-10'>
-                                <button
-                                    onClick={handlePrevColor}
-                                    className={`${currentSlideIndex === 0 ? "hidden" : ""}bg-gray-200 p-2 rounded`}
-                                >
-                                    Prev
-                                </button>
-                                <button
-                                    onClick={handleNextColor}
-                                    className="bg-gray-200 p-2 rounded"
-                                    disabled={currentSlideIndex === partNames.length - 1}
-                                >
-                                    Next
-                                </button>
-                            </div>
-                            <Swiper
-                                navigation={false}
-                                modules={[Navigation]}
-                                className="mySwiper"
-                                slidesPerView={1}
-                                spaceBetween={10}
-                                onSlideChange={handleSlideChange}
-                                ref={colorSwiperRef}
-                            >
-                                {partNames.map(part => (
-                                    <SwiperSlide key={part.id}>
-                                        <div className="mt-4">
-                                            <h4 className='my-5 text-3xl'>{part.displayName}</h4>
-                                            <div className='grid grid-cols-5'>
-                                                {colors.map(color => (
-                                                    <button
-                                                        key={color.name}
-                                                        onClick={() => handleColorChange(color.filter, part.id)}
-                                                        style={{ backgroundColor: color.color }}
-                                                        className={`w-30 h-14 rounded-md m-1 focus:outline-none border-2 border-black transition-transform transform hover:scale-110 ${filters[part.id] === color.filter ? 'border-4 border-blue-500' : ''}`}
-                                                        title={color.name}
-                                                    />
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
+                            <h2 className="text-lg font-semibold mb-2">Select Colors</h2>
+                            <div className="flex flex-col">
+                                {colors.map(color => (
+                                    <div key={color.name} className="form-control">
+                                        <label className="cursor-pointer label">
+                                            <input
+                                                type="checkbox"
+                                                className="checkbox checkbox-success mr-5"
+                                                onChange={() => handleColorChange(color.name, color.id)}
+                                            />
+                                            <span className="label-text text-xl">{color.name}</span>
+                                        </label>
+                                    </div>
                                 ))}
-                            </Swiper>
+                            </div>
                         </div>
                     )}
 
                     {activeTab === 'personalize' && (
                         <div className="mt-4">Personalize content here</div>
                     )}
-
-                    {/* Reset Button */}
                 </div>
             </div>
         </div>
