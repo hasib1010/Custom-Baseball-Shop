@@ -66,7 +66,7 @@ const imageLayers = [
   { id: 'lacesFinger', src: websLaces, alt: 'Webs Laces', zIndex: 220 },
   { id: 'stitching', src: websStitching, alt: 'Webs Stitching', zIndex: 2300 },
   { id: 'folderWeb', src: websWeb, alt: 'Webs Web', zIndex: 240 },
-  { id: " leather1ElephantSkin", src: leather1ElephantSkin, zIndex: 80 },
+  { id: "leather1ElephantSkin", src: leather1ElephantSkin, zIndex: 80 },
   { id: "leather1Gator", src: leather1Gator, zIndex: 80 },
   { id: "leather1Jeans", src: leather1Jeans, zIndex: 80 },
   { id: "leather1PaisleyGold", src: leather1PaisleyGold, zIndex: 80 },

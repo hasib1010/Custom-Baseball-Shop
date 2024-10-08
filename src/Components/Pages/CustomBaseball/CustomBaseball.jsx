@@ -265,9 +265,9 @@ const CustomBaseball = () => {
                     {activeTab === 'personalize' && (
                         <div className="mt-4">Personalize content here</div>
                     )}
-
-                    {/* Reset Button */}
+ 
                 </div>
+                <button className='btn btn-active w-fit   font-bold text-xl'>Add to Cart $264</button>
             </div>
         </div>
     );
