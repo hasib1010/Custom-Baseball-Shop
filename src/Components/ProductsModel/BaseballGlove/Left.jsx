@@ -43,9 +43,9 @@ const imageLayers = [
 
 const Left = ({ filters }) => {
     return (
-        <div className="relative min-h-screen">
-            {imageLayers.map((layer) => (
-                <div key={layer.id} className={`${layer.id}-container relative`}>
+        <div className="relative  ">
+            {imageLayers.map((layer, index) => (
+                <div key={index} className={`${layer.id}-container relative`}>
                     <img
                         id={layer.id}
                         className="absolute"

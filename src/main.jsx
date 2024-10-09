@@ -15,6 +15,7 @@ import Baseball from './Components/Pages/Baseball/Baseball.jsx';
 import InField from './Components/Pages/Baseball/Infield/InField.jsx';
 import Front from './Components/ProductsModel/BaseballGlove/Front.jsx';
 import CustomBaseball from './Components/Pages/CustomBaseball/CustomBaseball.jsx';
+import Cart from './Components/Cart/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/builder/baseball",
         element: <Baseball/>
+      },
+      {
+        path: "cart",
+        element: <Cart/>
       },
       {
         path: "/builder/baseball/infield",

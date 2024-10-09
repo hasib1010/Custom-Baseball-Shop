@@ -65,26 +65,14 @@ const imageLayers = [
   { id: 'wingtipThumb', src: wingtipThumb, alt: 'Wingtip Thumb', zIndex: 210 },
   { id: 'lacesFinger', src: websLaces, alt: 'Webs Laces', zIndex: 220 },
   { id: 'stitching', src: websStitching, alt: 'Webs Stitching', zIndex: 2300 },
-  { id: 'folderWeb', src: websWeb, alt: 'Webs Web', zIndex: 240 },
-  { id: "leather1ElephantSkin", src: leather1ElephantSkin, zIndex: 80 },
-  { id: "leather1Gator", src: leather1Gator, zIndex: 80 },
-  { id: "leather1Jeans", src: leather1Jeans, zIndex: 80 },
-  { id: "leather1PaisleyGold", src: leather1PaisleyGold, zIndex: 80 },
-  { id: "leather1Paisley", src: leather1Paisley, zIndex: 80 },
-  { id: "leather1Perforated", src: leather1Perforated, zIndex: 80 },
-  { id: "leather1SnakeskinCamo", src: leather1SnakeskinCamo, zIndex: 80 },
-  { id: "leather1SnakeskinCottonCandy", src: leather1SnakeskinCottonCandy, zIndex: 80 },
-  { id: "leather1SnakeskinTieDye", src: leather1SnakeskinTieDye, zIndex: 80 },
-  { id: "leather1Snakeskin", src: leather1Snakeskin, zIndex: 80 },
-  { id: "leather1Steel", src: leather1Steel, zIndex: 80 },
-  { id: "leather1Suede", src: leather1Suede, zIndex: 80 },
+  { id: 'folderWeb', src: websWeb, alt: 'Webs Web', zIndex: 240 } 
 ]
 
 const Front = ({ filters }) => {
   return (
-    <div className="relative min-h-screen">
-      {imageLayers.map((layer) => (
-        <div key={layer.id} className={`${layer.id}-container relative`}>
+    <div className="relative  ">
+      {imageLayers.map((layer, index) => (
+        <div key={index} className={`${layer.id}-container relative`}>
           <img
             id={layer.id}
             className="absolute"

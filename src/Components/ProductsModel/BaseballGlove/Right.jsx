@@ -37,8 +37,8 @@ import leatherSuedeImage from "./../../../assets/right/leather/leather-1--suede.
 
 const imageLayers = [
     { id: 'homePlate', src: homePlateImage, alt: 'Home Plate', zIndex: 10000 },
-    { id: 'homePlateLogo', src: homePlateLogoImage, alt: 'Home Plate Logo', zIndex: 11000 },
-    { id: 'homePlateStitching', src: homePlateStitchingImage, alt: 'Home Plate Stitching', zIndex: 1200 },
+    { id: 'mainLogo', src: homePlateLogoImage, alt: 'Home Plate Logo', zIndex: 11000 },
+    { id: 'stitching', src: homePlateStitchingImage, alt: 'Home Plate Stitching', zIndex: 1200 },
     { id: 'mainLogo', src: mainLogoImage, alt: 'Main Logo', zIndex: 1300 },
     { id: 'lacesFinger', src: lacesImage, alt: 'Laces', zIndex: 200 },
     { id: 'webLogo', src: webLogoImage, alt: 'Web Logo', zIndex: 15000 },
@@ -47,8 +47,8 @@ const imageLayers = [
     { id: 'binding', src: bindingImage, alt: 'Binding', zIndex: 580 },
     { id: 'interiorLeather', src: interiorLeatherImage, alt: 'Interior Leather', zIndex: 890 },
     { id: 'lacesFinger', src: lacesFingerImage, alt: 'Laces Finger', zIndex: 5000 },
-    { id: 'lacesPalm', src: lacesPalmImage, alt: 'Laces Palm', zIndex: 2100 },
-    { id: 'lacesWingtipThumb', src: lacesWingtipThumbImage, alt: 'Laces Wingtip Thumb', zIndex: 2200 },
+    { id: 'lacesFinger', src: lacesPalmImage, alt: 'Laces Palm', zIndex: 2100 },
+    { id: 'lacesFinger', src: lacesWingtipThumbImage, alt: 'Laces Wingtip Thumb', zIndex: 2200 },
     { id: 'leather1', src: leather1Image, alt: 'Leather 1', zIndex: 181 },
     { id: 'padding', src: paddingImage, alt: 'Padding', zIndex: 240 },
     { id: 'leather2', src: leather2Image, alt: 'Leather 2', zIndex: 50 },
@@ -73,20 +73,20 @@ const imageLayers = [
 
 const Right = ({ filters }) => {
     return (
-        <div className="relative min-h-screen">
-            {imageLayers.map((layer) => (
-                <div key={layer.id} className={`${layer.id}-container relative`}>
+        <div className="relative    ">
+            {imageLayers.map((layer, index) => (
+               
                     <img
-                        id={layer.id}
+                        id={layer.alt}
                         className="absolute"
                         src={layer.src}
                         alt={layer.alt}
                         style={{
-                            filter: filters[layer.id] || 'none', // Apply filter dynamically based on ID
+                            filter: filters[layer.id] || 'none',  
                             zIndex: layer.zIndex,
                         }}
                     />
-                </div>
+                
             ))}
         </div>
     );

@@ -30,28 +30,13 @@ import folderLaces from "./../../../assets/back/webs/New folder/laces.png";
 import folderStitching from "./../../../assets/back/webs/New folder/stitching.png";
 import folderLogo from "./../../../assets/back/webs/New folder/logo.png";
 import folderWeb from "./../../../assets/back/webs/New folder/web.png";
-import logo from "./../../../assets/back/logo/logo.png";   
-
-// Leather1 skins
-import leather1_44 from "./../../../assets/back/leather/leather-1--44leather.png";
-import leather1_elephantSkin from "./../../../assets/back/leather/leather-1--elephantskin.png";
-import leather1_gator from "./../../../assets/back/leather/leather-1--gator.png";
-import leather1_jeans from "./../../../assets/back/leather/leather-1--jeans.png";
-import leather1_paisleyGold from "./../../../assets/back/leather/leather-1--paisley--gold.png";
-import leather1_paisley from "./../../../assets/back/leather/leather-1--paisley.png";
-import leather1_perforated from "./../../../assets/back/leather/leather-1--perforated.png";
-import leather1_snakeskinCamo from "./../../../assets/back/leather/leather-1--snakeskin--camo.png";
-import leather1_snakeskinCottonCandy from "./../../../assets/back/leather/leather-1--snakeskin--cotton-candy.png";
-import leather1_snakeskinTieDye from "./../../../assets/back/leather/leather-1--snakeskin--tie-dye.png";
-import leather1_snakeskin from "./../../../assets/back/leather/leather-1--snakeskin.png";
-import leather1_steel from "./../../../assets/back/leather/leather-1--steel.png";
-import leather1_suede from "./../../../assets/back/leather/leather-1--suede.png";
+import logo from "./../../../assets/back/logo/logo.png";     
 
 // Define image layers
 const imageLayers = [
-  { id: 'homePlate', src: homePlate, alt: 'Home Plate', zIndex: 100 },
-  { id: 'homePlateLogo', src: homePlateLogo, alt: 'Home Plate Logo', zIndex: 110 },
-  { id: 'homePlateStitching', src: homePlateStitching, alt: 'Home Plate Stitching', zIndex: 120 },
+  { id: 'homePlate', src: homePlate, alt: 'Home Plate', zIndex: 10000 },
+  { id: 'mainLogo', src: homePlateLogo, alt: 'Home Plate Logo', zIndex: 11000 },
+  { id: 'stitching', src: homePlateStitching, alt: 'Home Plate Stitching', zIndex: 1200 },
   { id: 'logo', src: mainLogo, alt: 'Main Logo', zIndex: 130 },
   { id: 'binding', src: binding, alt: 'Binding', zIndex: 140 },
   { id: 'interiorLeather', src: interiorLeather, alt: 'Interior Leather', zIndex: 150 },
@@ -71,35 +56,21 @@ const imageLayers = [
   { id: 'padding', src: padding, alt: 'Padding', zIndex: 290 },
   { id: 'palm', src: palm, alt: 'Palm', zIndex: 300 },
   { id: 'stitching', src: webStitching, alt: 'Web Stitching', zIndex: 310 },
-  { id: 'welting', src: welting, alt: 'Welting', zIndex: 320 },
+  { id: 'welting', src: welting, alt: 'Welting', zIndex: 350 },
   { id: 'wingtipThumb', src: wingtipThumb, alt: 'Wingtip Thumb', zIndex: 330 },
   { id: 'wrist', src: wrist, alt: 'Wrist', zIndex: 340 },
   { id: 'lacesFinger', src: folderLaces, alt: 'Folder Laces', zIndex: 350 },
-  { id: 'folderStitching', src: folderStitching, alt: 'Folder Stitching', zIndex: 360 },
+  { id: 'stitching', src: folderStitching, alt: 'Folder Stitching', zIndex: 3060 },
   { id: 'folderLogo', src: folderLogo, alt: 'Folder Logo', zIndex: 370 },
   { id: 'folderWeb', src: folderWeb, alt: 'Folder Web', zIndex: 380 },
-  { id: 'mainLogo', src: logo, alt: 'Logo', zIndex: 390 },
-  // Leather skins
-  { id: 'leather1_44', src: leather1_44, alt: 'Leather 1 - 44 Leather', zIndex: 209 },
-  { id: 'leather1ElephantSkin', src: leather1_elephantSkin, alt: 'Leather 1 - Elephant Skin', zIndex: 209 },
-  { id: 'leather1Gator', src: leather1_gator, alt: 'Leather 1 - Gator', zIndex: 209 },
-  { id: 'leather1Jeans', src: leather1_jeans, alt: 'Leather 1 - Jeans', zIndex: 209 },
-  { id: 'leather1PaisleyGold', src: leather1_paisleyGold, alt: 'Leather 1 - Paisley Gold', zIndex: 209 },
-  { id: 'leather1Paisley', src: leather1_paisley, alt: 'Leather 1 - Paisley', zIndex: 209 },
-  { id: 'leather1Perforated', src: leather1_perforated, alt: 'Leather 1 - Perforated', zIndex: 209 },
-  { id: 'leather1SnakeskinCamo', src: leather1_snakeskinCamo, alt: 'Leather 1 - Snakeskin Camo', zIndex: 209 },
-  { id: 'leather1SnakeskinCottonCandy', src: leather1_snakeskinCottonCandy, alt: 'Leather 1 - Snakeskin Cotton Candy', zIndex: 209 },
-  { id: 'leather1SnakeskinTieDye', src: leather1_snakeskinTieDye, alt: 'Leather 1 - Snakeskin Tie Dye', zIndex: 209 },
-  { id: 'leather1Snakeskin', src: leather1_snakeskin, alt: 'Leather 1 - Snakeskin', zIndex: 209 },
-  { id: 'leather1Steel', src: leather1_steel, alt: 'Leather 1 - Steel', zIndex: 209 },
-  { id: 'leather1Suede', src: leather1_suede, alt: 'Leather 1 - Suede', zIndex: 209 },
+  { id: 'mainLogo', src: logo, alt: 'Logo', zIndex: 390 }, 
 ];
 
 const Back = ({ filters }) => {
     return (
-        <div className="relative min-h-screen">
-            {imageLayers.map((layer) => (
-                <div key={layer.id} className={`${layer.id}-container relative`}>
+        <div className="relative  ">
+            {imageLayers.map((layer, index) => (
+                <div key={index} className={`${layer.id}-container relative`}>
                     <img
                         id={layer.id}
                         className="absolute"
