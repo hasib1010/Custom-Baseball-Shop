@@ -25,21 +25,7 @@ import wingtipThumb from "./../../../assets/front/wingtip-thumb.png";
 import websLaces from "./../../../assets/front/webs/laces.png";
 import websStitching from "./../../../assets/front/webs/stitching.png";
 import websWeb from "./../../../assets/front/webs/web.png";
-
-// leather1 colors
-import leather1ElephantSkin from "./../../../assets/front/leather/leather-1--elephantskin.png";
-import leather1Gator from "./../../../assets/front/leather/leather-1--gator.png";
-import leather1Jeans from "./../../../assets/front/leather/leather-1--jeans.png";
-import leather1PaisleyGold from "./../../../assets/front/leather/leather-1--paisley--gold.png";
-import leather1Paisley from "./../../../assets/front/leather/leather-1--paisley.png";
-import leather1Perforated from "./../../../assets/front/leather/leather-1--perforated.png";
-import leather1SnakeskinCamo from "./../../../assets/front/leather/leather-1--snakeskin--camo.png";
-import leather1SnakeskinCottonCandy from "./../../../assets/front/leather/leather-1--snakeskin--cotton-candy.png";
-import leather1SnakeskinTieDye from "./../../../assets/front/leather/leather-1--snakeskin--tie-dye.png";
-import leather1Snakeskin from "./../../../assets/front/leather/leather-1--snakeskin.png";
-import leather1Steel from "./../../../assets/front/leather/leather-1--steel.png";
-import leather1Suede from "./../../../assets/front/leather/leather-1--suede.png";
-
+ 
 // Define image layers for the Front component
 const imageLayers = [
   { id: 'binding', src: binding, alt: 'Binding', zIndex: 10 },

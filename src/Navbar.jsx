@@ -80,7 +80,7 @@ const NavBar = () => {
                 <div className='hidden lg:flex  items-center gap-6'>
                     <Link className="text-base hover:text-blue-600 transition duration-300" to="/login">Login/Register</Link>
                     <div className='relative'>
-                        <FaShoppingCart className='text-2xl hover:text-blue-600 transition duration-300' />
+                        <Link to={'/cart'}> <FaShoppingCart className='text-2xl hover:text-blue-600 transition duration-300' /></Link>
                         <p className='absolute bottom-5 -right-2 bg-blue-700 text-sm font-bold text-white rounded-full h-5 w-5 text-center'>0</p>
                     </div>
                 </div>

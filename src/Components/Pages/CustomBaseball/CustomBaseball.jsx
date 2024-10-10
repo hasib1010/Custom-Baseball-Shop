@@ -9,19 +9,52 @@ import Back from '../../ProductsModel/BaseballGlove/Back';
 import Left from '../../ProductsModel/BaseballGlove/Left';
 import Right from '../../ProductsModel/BaseballGlove/Right';
 import CustomTab from './CustomTab';
-import { MdVerified } from 'react-icons/md';
 import { VscVerifiedFilled } from 'react-icons/vsc';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Constants for initial states
 const initialFilters = {
-    binding: '', folderWeb: '', interiorLeather: '', lacesFinger: '', lacesPalm: '', lacesWingtipPinky: '', lacesWingtipThumb: '', lacesWrist: '', leather1: '', leather2: '', leather3: '', leather4: '', leather5: '', leather6: '', leather7: '', leather8: '', mainLogo: '', padding: '', palm: '', palmLogo: '', stitching: '', websLaces: '', websStitching: '', websWeb: '', welting: '', wingtipPinky: '', wingtipThumb: '', wrist: ''
+    binding: '', folderWeb: '', interiorLeather: '', lacesFinger: '', lacesPalm: '',
+    lacesWingtipPinky: '', lacesWingtipThumb: '', lacesWrist: '', leather1: '',
+    leather2: '', leather3: '', leather4: '', leather5: '', leather6: '',
+    leather7: '', leather8: '', mainLogo: '', padding: '', palm: '',
+    palmLogo: '', stitching: '', websLaces: '', websStitching: '', websWeb: '',
+    welting: '', wingtipPinky: '', wingtipThumb: '', wrist: ''
 };
+
 const initialOrderData = {
-    size: '', binding: '', folderWeb: '', interiorLeather: '', lacesFinger: '', lacesPalm: '', lacesWingtipPinky: '', lacesWingtipThumb: '', lacesWrist: '', leather1: '', leather2: '', leather3: '', leather4: '', leather5: '', leather6: '', leather7: '', leather8: '', mainLogo: '', padding: '', palm: '', palmLogo: '', stitching: '', websLaces: '', websStitching: '', websWeb: '', welting: '', wingtipPinky: '', wingtipThumb: '', wrist: ''
+    size: '', binding: '', folderWeb: '', interiorLeather: '', lacesFinger: '',
+    lacesPalm: '', lacesWingtipPinky: '', lacesWingtipThumb: '', lacesWrist: '',
+    leather1: '', leather2: '', leather3: '', leather4: '', leather5: '',
+    leather6: '', leather7: '', leather8: '', mainLogo: '', padding: '',
+    palm: '', palmLogo: '', stitching: '', websLaces: '', websStitching: '',
+    websWeb: '', welting: '', wingtipPinky: '', wingtipThumb: '', wrist: ''
 };
+
 const colors = [
-    { name: 'White', color: '#FFFFFF', filter: '' }, { name: 'Red', color: '#fdda4c', filter: 'brightness(0.9) sepia(90%) saturate(900%) hue-rotate(0deg)' }, { name: 'Blue', color: '#fabefe', filter: 'brightness(0.8) sepia(80%) saturate(700%) hue-rotate(210deg)' }, { name: 'Green', color: '#4bfecb', filter: 'brightness(0.8) sepia(90%) saturate(800%) hue-rotate(100deg)' }, { name: 'Black', color: '#4b4c4c', filter: 'brightness(0) sepia(0%) saturate(0%)' }, { name: 'Yellow', color: '#73f969', filter: 'brightness(0.1) sepia(90%) saturate(900%) hue-rotate(60deg)' }, { name: 'Peach', color: '#c7f079', filter: 'brightness(0.5) sepia(60%) saturate(500%) hue-rotate(30deg)' }, { name: 'Purple', color: '#fdaefe', filter: 'brightness(.4) sepia(90%) saturate(800%) hue-rotate(240deg)' }, { name: 'Orange', color: '#b1f64d', filter: 'brightness(.5) sepia(90%) saturate(700%) hue-rotate(30deg)' }, { name: 'Pink', color: '#fdd754', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(350deg)' }, { name: 'Brown', color: '#cbeb4c', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(20deg)' }, { name: 'Gray', color: '#999a9a', filter: 'brightness(0.5) sepia(0%) saturate(0%)' }, { name: 'Turquoise', color: '#91dafe', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(170deg)' }, { name: 'Violet', color: '#fda7fe', filter: 'brightness(0.5) sepia(90%) saturate(800%) hue-rotate(270deg)' }, { name: 'Cyan', color: '#b0d5fe', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(180deg)' }, { name: 'Indigo', color: '#f5bdfe', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(210deg)' }, { name: 'Lavender', color: '#fdccfe', filter: 'brightness(0.5) sepia(60%) saturate(400%) hue-rotate(240deg)' }, { name: 'Lime', color: '#4bfeae', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(90deg)' }, { name: 'Mint', color: '#4bfefd', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(120deg)' }, { name: 'Coral', color: '#d7e94c', filter: 'brightness(0.5) sepia(70%) saturate(500%) hue-rotate(15deg)' }, { name: 'Salmon', color: '#e5df4c', filter: 'brightness(0.5) sepia(80%) saturate(600%) hue-rotate(10deg)' }, { name: 'Gold', color: '#8efb5b', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(45deg)' },];
+    { name: 'White', color: '#FFFFFF', filter: '' },
+    { name: 'Red', color: '#fdda4c', filter: 'brightness(0.9) sepia(90%) saturate(900%) hue-rotate(0deg)' },
+    { name: 'Blue', color: '#fabefe', filter: 'brightness(0.8) sepia(a80%) saturate(700%) hue-rotate(210deg)' },
+    { name: 'Green', color: '#4bfecb', filter: 'brightness(0.8) sepia(90%) saturate(800%) hue-rotate(100deg)' },
+    { name: 'Black', color: '#4b4c4c', filter: 'brightness(0) sepia(0%) saturate(0%)' },
+    { name: 'Yellow', color: '#73f969', filter: 'brightness(0.1) sepia(90%) saturate(900%) hue-rotate(60deg)' },
+    { name: 'Peach', color: '#c7f079', filter: 'brightness(0.5) sepia(60%) saturate(500%) hue-rotate(30deg)' },
+    { name: 'Purple', color: '#fdaefe', filter: 'brightness(.4) sepia(90%) saturate(800%) hue-rotate(240deg)' },
+    { name: 'Orange', color: '#b1f64d', filter: 'brightness(.5) sepia(90%) saturate(700%) hue-rotate(30deg)' },
+    { name: 'Pink', color: '#fdd754', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(350deg)' },
+    { name: 'Brown', color: '#cbeb4c', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(20deg)' },
+    { name: 'Gray', color: '#999a9a', filter: 'brightness(0.5) sepia(0%) saturate(0%)' },
+    { name: 'Turquoise', color: '#91dafe', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(170deg)' },
+    { name: 'Violet', color: '#fda7fe', filter: 'brightness(0.5) sepia(90%) saturate(800%) hue-rotate(270deg)' },
+    { name: 'Cyan', color: '#b0d5fe', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(180deg)' },
+    { name: 'Indigo', color: '#f5bdfe', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(210deg)' },
+    { name: 'Lavender', color: '#fdccfe', filter: 'brightness(0.5) sepia(60%) saturate(400%) hue-rotate(240deg)' },
+    { name: 'Lime', color: '#4bfeae', filter: 'brightness(0.5) sepia(90%) saturate(700%) hue-rotate(90deg)' },
+    { name: 'Mint', color: '#4bfefd', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(120deg)' },
+    { name: 'Coral', color: '#d7e94c', filter: 'brightness(0.5) sepia(70%) saturate(500%) hue-rotate(15deg)' },
+    { name: 'Salmon', color: '#e5df4c', filter: 'brightness(0.5) sepia(80%) saturate(600%) hue-rotate(10deg)' },
+    { name: 'Gold', color: '#8efb5b', filter: 'brightness(0.5) sepia(90%) saturate(600%) hue-rotate(45deg)' },
+];
 
 const sizes = ['11"', '11.25"', '11.5"', '11.75"', '12"', '12.25"'];
 
@@ -32,7 +65,26 @@ const tabs = [
 ];
 
 const partNames = [
-    { id: 'leather1', displayName: 'Leather 1' }, { id: 'leather2', displayName: 'Leather 2' }, { id: 'leather3', displayName: 'Leather 3' }, { id: 'leather4', displayName: 'Leather 4' }, { id: 'leather5', displayName: 'Leather 5' }, { id: 'leather6', displayName: 'Leather 6' }, { id: 'leather7', displayName: 'Leather 7' }, { id: 'leather8', displayName: 'Leather 8' }, { id: 'palm', displayName: 'Palm' }, { id: 'folderWeb', displayName: 'Web' }, { id: 'wrist', displayName: 'Wrist' }, { id: 'wingtipPinky', displayName: 'Wingtip Pinky' }, { id: 'wingtipThumb', displayName: 'Wingtip Thumb' }, { id: 'binding', displayName: 'Binding' }, { id: 'welting', displayName: 'Welting' }, { id: 'stitching', displayName: 'Stitching' }, { id: 'mainLogo', displayName: 'Logo Color' }, { id: 'lacesFinger', displayName: 'Laces' }, { id: 'padding', displayName: 'Padding' },];
+    { id: 'leather1', displayName: 'Leather 1' },
+    { id: 'leather2', displayName: 'Leather 2' },
+    { id: 'leather3', displayName: 'Leather 3' },
+    { id: 'leather4', displayName: 'Leather 4' },
+    { id: 'leather5', displayName: 'Leather 5' },
+    { id: 'leather6', displayName: 'Leather 6' },
+    { id: 'leather7', displayName: 'Leather 7' },
+    { id: 'leather8', displayName: 'Leather 8' },
+    { id: 'palm', displayName: 'Palm' },
+    { id: 'folderWeb', displayName: 'Web' },
+    { id: 'wrist', displayName: 'Wrist' },
+    { id: 'wingtipPinky', displayName: 'Wingtip Pinky' },
+    { id: 'wingtipThumb', displayName: 'Wingtip Thumb' },
+    { id: 'binding', displayName: 'Binding' },
+    { id: 'welting', displayName: 'Welting' },
+    { id: 'stitching', displayName: 'Stitching' },
+    { id: 'mainLogo', displayName: 'Logo Color' },
+    { id: 'lacesFinger', displayName: 'Laces' },
+    { id: 'padding', displayName: 'Padding' },
+];
 
 const CustomBaseball = () => {
     const [orderData, setOrderData] = useState(() => {
@@ -40,31 +92,33 @@ const CustomBaseball = () => {
         return savedData ? JSON.parse(savedData) : initialOrderData;
     });
 
-    const [filters, setFilters] = useState(() => {
-        const localStorageData = localStorage.getItem('filters');
-        return localStorageData ? JSON.parse(localStorageData) : initialFilters;
-    });
-
+    const [filters, setFilters] = useState(initialFilters);
     const [activeTab, setActiveTab] = useState('base');
     const [selectedSize, setSelectedSize] = useState(() => {
         const savedSize = localStorage.getItem('selectedSize');
         return savedSize || '';
     });
 
+    const [showNotification, setShowNotification] = useState(false); // Notification state
     const swiperRef = useRef(null);
     const colorSwiperRef = useRef(null);
+    const navigate = useNavigate();
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
 
-    const handleColorChange = (filter, type, name) => {
-        setFilters(prevFilters => ({
+    const handleColorChange = (filter, type, colorName) => {
+        setFilters((prevFilters) => ({
             ...prevFilters,
-            [type]: filter,
+            [type]: filter, // Store the filter for rendering
         }));
-        updateOrderData(type, name);
+        updateOrderData(type, colorName); // Store only the color name
     };
+     
+    
+
+
 
     const handleSizeChange = (size) => {
         setSelectedSize(size);
@@ -81,12 +135,12 @@ const CustomBaseball = () => {
     };
 
     const updateOrderData = (key, value) => {
-        setOrderData(prevData => {
+        setOrderData((prevData) => {
             const newData = { ...prevData, [key]: value };
             localStorage.setItem('orderData', JSON.stringify(newData));
             return newData;
         });
-    };
+    }; 
 
     const resetSwiper = () => {
         if (swiperRef.current) swiperRef.current.swiper.slideTo(0);
@@ -98,15 +152,24 @@ const CustomBaseball = () => {
         localStorage.setItem('selectedSize', selectedSize);
     }, [filters, selectedSize]);
 
-    const navigate = useNavigate()
-    const handleAddToCart = () => {
-        const completeOrderData = { ...orderData, filters };
-        console.log('Adding to cart:', completeOrderData); 
-        localStorage.setItem('cartData', JSON.stringify(completeOrderData));
- 
-        navigate('/cart');
+    const handleAddToCart = () => { 
+        const completeOrderData = {
+            ...orderData,
+            filters: { ...filters }  
+        };
+     
+        const existingCartData = localStorage.getItem('cartData');
+        const cartData = existingCartData ? JSON.parse(existingCartData) : [];
+     
+        cartData.push(completeOrderData);
+        localStorage.setItem('cartData', JSON.stringify(cartData));  
+        setShowNotification(true);
+        navigate('/cart'); 
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 3000);
     };
-
+    
 
     const isAddToCartEnabled = selectedSize && Object.values(filters).some(filter => filter);
 
@@ -139,9 +202,17 @@ const CustomBaseball = () => {
                     Add to Cart $264
                 </button>
             </div>
+
+            {showNotification && (
+                <div className="fixed bottom-10 right-10 bg-green-500 text-white p-4 rounded shadow-lg">
+                    Item added to cart successfully!
+                </div>
+            )}
         </div>
     );
 };
+
+
 
 const SizeSelector = ({ sizes, selectedSize, onSizeChange }) => (
     <div className="text-black mt-4">
@@ -180,7 +251,7 @@ const ColorSelector = ({ colors, partNames, filters, onColorChange, colorSwiperR
                                     <button
                                         onClick={() => onColorChange(color.filter, part.id, color.name)}
                                         style={{ backgroundColor: color.color, width: '60px', height: '56px' }} // Set fixed width and height
-                                        className={`rounded-md m-1 focus:outline-none border-2 z-10 border-black transition-transform transform hover:scale-110 ${filters[part.id] === color.filter ? '  ' : ''}`}
+                                        className={`rounded-md m-1 focus:outline-none border-2 z-10 border-black transition-transform transform hover:scale-110 ${filters[part.id] === color.filter ? ' ' : ''}`}
                                         title={color.name}
                                     />
                                     {filters[part.id] === color.filter && (
